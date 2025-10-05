@@ -128,6 +128,7 @@
     ranger
     gitFull
     vscode
+    clip
     fastfetch
     brave
     discord
