@@ -133,6 +133,7 @@
     discord
     pipx
     peazip
+    mpv
   ]; 
 
   programs.steam = {
