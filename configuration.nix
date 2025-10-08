@@ -131,6 +131,7 @@
     fastfetch
     brave
     discord
+    mangohud
     pipx
     peazip
     mpv
@@ -145,8 +146,6 @@
   };
 
   programs.gamemode.enable = true;
-
-  programs.mangohud.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts
