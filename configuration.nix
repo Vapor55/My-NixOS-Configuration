@@ -144,6 +144,10 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+  programs.gamemode.enable = true;
+
+  programs.mangohud.enable = true;
+
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
