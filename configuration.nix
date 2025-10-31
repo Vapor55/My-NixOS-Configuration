@@ -12,9 +12,17 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+    };
+    grub = {
+      efiSupport = true;
+      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+      device = "nodev";
+    };
+  };
 
   networking.hostName = "negativo2"; # Define your hostname.
   # Pick only one of the below networking options.
