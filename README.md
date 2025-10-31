@@ -5,3 +5,4 @@ I decide preserve my **NixOS** *configuration* and share my *configuration* to o
 I'm using KDE with ZSH Powerlevel10k, Discord and Steam, Nerd Fonts, nh helper and more configurations.
 ## Credits
 Thanks to [Deive](https://github.com/HavanaHL) to maked my Flakes.
+![NixOS logo animated](./Assets/Images/nixos.gif)
