@@ -1,5 +1,5 @@
 # // home.nix
-{ config, pkgs, ... }
+{ config, pkgs, ... }:
 
 {
   home.username = "guilherme";
@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     htop
     btop
+    neovim
     fastfetch
     feh
     audacious
@@ -18,9 +19,6 @@
 
   programs.zsh = {
     enable = true;
-    enableCompletions = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
 
     shellAliases = {
       ll = "ls -l";
@@ -44,15 +42,6 @@
     enable = true;
     userName  = "Guilherme Costa de Menezes";
     userEmail = "guilhermecosta6777@gmail.com";
-  };
-
-  programs.neovim.lazyvim.enable = true;
-
-  home-manager.users.guilherme.services.kdeconnect.enable = true;
-
-  networking.firewall = rec {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
   };
 
   nixpkgs.config.allowUnfree = true;
