@@ -12,6 +12,7 @@
     feh
     audacious
     mpv
+    brave
     discord
   ];
 
