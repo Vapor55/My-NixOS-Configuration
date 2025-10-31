@@ -39,9 +39,6 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-  
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -65,23 +62,10 @@
   users.users.guilherme = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh; 
+    shell = pkgs.bash; 
     packages = with pkgs; [
       tree
     ];
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableBashCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-      plugins = [ "git" "history" ];
-    };
   };
 
   programs.nh = {
@@ -91,62 +75,31 @@
     flake = "/etc/nixos"; # sets NH_OS_FLAKE variable for you  
   };
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
-  };
-
   zramSwap.enable = true;
+ 
+  environment.systemPackages = with pkgs; [
+    # KDE
+    kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
+    kdePackages.kcalc # Calculator
+    kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
+    kdePackages.kclock # Clock app
+    kdePackages.kcolorchooser # A small utility to select a color
+    kdePackages.kolourpaint # Easy-to-use paint program
+    kdePackages.ksystemlog # KDE SystemLog Application
+    kdePackages.sddm-kcm # Configuration module for SDDM
+    kdiff3 # Compares and merges 2 or 3 files or directories
+    kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks
+    kdePackages.partitionmanager # Optional: Manage the disk devices, partitions and file systems on your computer
+    # Non-KDE graphical packages
+    hardinfo2 # System information and benchmarks for Linux systems
+    vlc # Cross-platform media player and streaming server
+    wayland-utils # Wayland utilities
+    wl-clipboard # Command-line copy/paste utilities for Wayland
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true; # recommended for most users
-    xwayland.enable = true; # Xwayland can be disabled.
-  };
-
-  programs.kdeconnect.enable = true;
-
-  environment.systemPackages = with pkgs; [ 
-    networkmanagerapplet
-    kitty
-    kdePackages.qtsvg
-    kdePackages.kio-fuse #to mount remote filesystems via FUSE
-    kdePackages.kio-extras #extra protocols support (sftp, fish and more)
-    kdePackages.dolphin # This is the actual dolphin package
-    wofi
-    waybar
-    hyprpaper
-    grim
-    slurp
-    wl-clipboard
-    mako
-    libnotify
+    # Others Packages
     vim_configurable
-    htop
-    btop
     ranger
-    gitFull
-    vscode
-    fastfetch
-    brave
-    discord
-    pipx
-    peazip
-    mpv
   ]; 
-
-  programs.steam = {
-    enable = true;
-    # Optional: Open firewall ports for features like Remote Play
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-
-  programs.gamemode.enable = true;
-
-  programs.mangohud.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -160,10 +113,6 @@
   ];
 
   fonts.fontconfig.enable = true;
-
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
