@@ -119,6 +119,7 @@
     # Others Packages
     vim_configurable
     ranger
+    dracula-icon-theme
   ]; 
 
   programs.steam = {
