@@ -48,7 +48,8 @@
   # services.xserver.enable = true;
 
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  services.xserver.xkb.layout = "br";
+  services.xserver.xkb.variant = "abnt2";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
