@@ -62,7 +62,8 @@
   users.users.guilherme = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.bash; 
+    useDefaultShell = true;
+    shell = pkgs.zsh; 
     packages = with pkgs; [
       tree
     ];
@@ -162,6 +163,6 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }
 
