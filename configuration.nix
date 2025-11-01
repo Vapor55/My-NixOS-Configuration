@@ -45,7 +45,7 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "br";
@@ -129,8 +129,15 @@
     dracula-icon-theme
   ]; 
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32bit = true;
+  };
+
   programs.steam = {
     enable = true;
+    gamescopeSession.enable = true; 
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
