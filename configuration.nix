@@ -129,12 +129,6 @@
     dracula-icon-theme
   ]; 
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32bit = true;
-  };
-
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true; 
