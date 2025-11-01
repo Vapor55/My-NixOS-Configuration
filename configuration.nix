@@ -127,6 +127,8 @@
     vim_configurable
     ranger
     dracula-icon-theme
+    vulkan-tools
+    mesa
     mangohud
     gamemode
     gamescope
