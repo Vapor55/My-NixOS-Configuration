@@ -15,6 +15,8 @@
     mpv
     brave
     discord
+    gamemode
+    mangohud
   ];
 
   programs.zsh = {
@@ -36,7 +38,7 @@
     history.path = "$HOME/.zsh_history";
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
 
-    initExtra = ''
+    initContent = ''
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
 
