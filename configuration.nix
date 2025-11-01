@@ -87,7 +87,14 @@
     flake = "/etc/nixos"; # sets NH_OS_FLAKE variable for you  
   };
 
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 100;
+    swapDevices = 1;
+    priority = 100;
+    # writebackDevice = "/dev/sdXN";
+  };
 
   services = {
     desktopManager.plasma6.enable = true;
