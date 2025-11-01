@@ -15,8 +15,6 @@
     mpv
     brave
     discord
-    gamemode
-    mangohud
   ];
 
   programs.zsh = {
