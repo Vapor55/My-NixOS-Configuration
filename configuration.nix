@@ -28,6 +28,8 @@
     options snd-intel-dspcfg dsp_driver=1
   '';
 
+  hardware.bluetooth.enable = true;
+
   networking.hostName = "negativo2"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -65,7 +67,12 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    audio.enable = true;
+    alsa.enable = true;
+    wireplumber.enable = true;
   };
+
+  security.rtkit.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
