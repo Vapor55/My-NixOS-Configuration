@@ -141,6 +141,7 @@
     mangohud
     gamemode
     gamescope
+    protonplus
     lutris
   ]; 
 
