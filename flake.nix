@@ -11,7 +11,7 @@
 
   };
 
-  outputs = {self, nixpkgs, home-manager, } @ inputs: {
+  outputs = {self, nixpkgs, home-manager } @ inputs: {
     
   nixosConfigurations = {
       "negativo2" = nixpkgs.lib.nixosSystem {
