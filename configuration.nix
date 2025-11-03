@@ -152,6 +152,10 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+  # Waydroid to play Hatsune Miku: Colorful Stage
+
+  virtualisation.waydroid.enable = true;
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-unwrapped"
