@@ -9,14 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
-  outputs = {self, nixpkgs, home-manager, nur } @ inputs: {
+  outputs = {self, nixpkgs, home-manager, } @ inputs: {
     
   nixosConfigurations = {
       "negativo2" = nixpkgs.lib.nixosSystem {
@@ -32,6 +27,7 @@
         modules = [ ./home.nix ];
       };
     };
+
   };
 }
 
