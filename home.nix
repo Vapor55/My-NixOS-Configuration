@@ -40,6 +40,7 @@
       lal = "ls -al";
       la = "ls -a";
       update = "nh os switch";
+      update-home = "nh home switch";
     };
 
     history.size = 10000;
