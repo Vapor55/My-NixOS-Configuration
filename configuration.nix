@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -111,17 +111,24 @@
 
   # Display Manager for Hyprland
 
-  services.displayManager.sddm.enable
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 
   # Hyprland
 
-  programs.hyprland.enable = true; # enable Hyprland
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
 
     # Hyprland Needed Packages
 
-    pkgs.kitty # required for the default Hyprland config
+    kitty # required for the default Hyprland config
     waybar
     wofi
     mako
@@ -129,13 +136,14 @@
 
     # Others Packages
 
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     vim_configurable
     mangohud
     gamemode
     gamescope
     protonplus
     lutris
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
   ]; 
 
   # Optional, hint Electron apps to use Wayland:

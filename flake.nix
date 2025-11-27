@@ -20,7 +20,7 @@
 
   };
 
-  outputs = {self, nixpkgs, home-manager } @ inputs: {
+  outputs = {self, nixpkgs, grub2-themes, zen-browser, home-manager } @ inputs: {
     
   nixosConfigurations = {
       "negativo2" = nixpkgs.lib.nixosSystem {
