@@ -26,7 +26,7 @@
       enable = true;
       theme = "vimix";
       footer = true;
-      customResolution = "1600x900";  # Optional: Set a custom resolution
+      customResolution = "1920x1080";  # Optional: Set a custom resolution
     };
   };
 
@@ -114,7 +114,13 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+
     theme = "sddm-astronaut-theme";
+    extraPackages = with pkgs; [
+      kdePackages.qtsvg
+      kdePackages.qtmultimedia
+      kdePackages.qtvirtualkeyboard
+    ];
   };
 
   # Hyprland
@@ -126,6 +132,10 @@
   };
 
   environment.systemPackages = with pkgs; [
+
+    # SDDM Theme
+
+    sddm-astronaut
 
     # Hyprland Needed Packages
 
