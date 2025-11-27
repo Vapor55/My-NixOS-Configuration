@@ -129,7 +129,18 @@
     # Hyprland Needed Packages
 
     kitty # required for the default Hyprland config
+
+    # Dolphin File Manager
+
+    kdePackages.dolphin # This is the actual dolphin package
+    kdePackages.kio-fuse #to mount remote filesystems via FUSE
+    kdePackages.kio-extras #extra protocols support (sftp, fish and more)
+    kdePackages.qtsvg
+
+    # Others Hyprland necessary packages
+
     waybar
+    hyprpaper
     wofi
     mako
     wl-clipboard
