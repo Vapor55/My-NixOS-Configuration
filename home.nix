@@ -27,7 +27,7 @@
       lla = "ls -la";
       lal = "ls -al";
       la = "ls -a";
-      update = "sudo nh os switch";
+      update = "nh os switch";
       update-home = "nh home switch";
     };
 
