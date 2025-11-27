@@ -123,6 +123,7 @@
 
     # Others Packages
 
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     vim_configurable
     mangohud
     gamemode
