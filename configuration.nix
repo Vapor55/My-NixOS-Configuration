@@ -22,6 +22,12 @@
       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       device = "nodev";
     };
+    grub2-theme = {
+      enable = true;
+      theme = "vimix";
+      footer = true;
+      customResolution = "1600x900";  # Optional: Set a custom resolution
+    };
   };
 
   boot.extraModprobeConfig = ''
