@@ -158,6 +158,7 @@
 
     # Others Packages
 
+    networkmanagerapplet
     vim_configurable
     mangohud
     gamemode
