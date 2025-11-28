@@ -159,6 +159,7 @@
     wl-clipboard
     slurp
     grim
+    swappy
 
     # Others Packages
 
