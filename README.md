@@ -16,6 +16,8 @@ I'm using KDE with ZSH Powerlevel10k, Discord and Steam, Nerd Fonts, nh helper a
 
 [My Hyprland Dotfiles](https://gitlab.com/vapor55-group/My-Hyprland-Dotfiles)
 
+[KAngel Fastfetch Dotfiles](https://github.com/Vapor55/KAngel-Fastfetch-Dotfiles)
+
 ## Credits
 
 Thanks to [Deive](https://github.com/HavanaHL) to maked my Flakes.
