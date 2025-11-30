@@ -91,6 +91,8 @@
     ];
   };
 
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
   programs.zsh.enable = true;
 
   programs.nh = {
@@ -184,9 +186,12 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-  # Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
+  # VirtualBox and Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
 
-  virtualisation.waydroid.enable = true;
+  virtualisation = {
+    waydroid.enable = true;
+    virtualbox.host.enable = true;
+  };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
