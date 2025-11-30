@@ -4,12 +4,13 @@
 {
   home.username = "guilherme";
   home.homeDirectory = "/home/guilherme";
-  home.stateVersion = "25.11"; # Or your desired NixOS release version
+  home.stateVersion = "26.05"; # Or your desired NixOS release version
   home.packages = with pkgs; [
     htop
     btop
     neovim
     fastfetch
+    onefetch
     feh
     audacious
     mpv
@@ -81,8 +82,8 @@
 
   programs.git = {
     enable = true;
-    userName  = "Guilherme Costa de Menezes";
-    userEmail = "guilhermecosta6777@gmail.com";
+    settings.user.name  = "Guilherme Costa de Menezes";
+    settings.user.email = "guilhermecosta6777@gmail.com";
   };
 
   nixpkgs.config.allowUnfree = true;
