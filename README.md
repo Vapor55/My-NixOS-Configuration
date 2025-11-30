@@ -330,11 +330,19 @@ To reboot system.
 
 Now enter in NixOS and be happy 😁
 
-# Others repository to complement NixOS dotfiles
+### Optional: Post-installation
+
+If your want to pick up my Hyprland dotfiles. Here it is:
 
 [My Hyprland Dotfiles](https://gitlab.com/vapor55-group/My-Hyprland-Dotfiles)
 
+If your want my Fastfetch configuration:
+
 [KAngel Fastfetch Dotfiles](https://github.com/Vapor55/KAngel-Fastfetch-Dotfiles)
+
+Or your don't like Needy Streamer Overload:
+
+[My Fastfetch Dotfiles](https://github.com/Vapor55/My-Fastfetch-Dotfiles)
 
 # Credits
 
