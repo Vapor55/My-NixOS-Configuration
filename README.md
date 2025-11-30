@@ -271,7 +271,7 @@ Edit the flake.nix too.
 ```nix
 nixosConfigurations = {
      "your-hostname" = nixpkgs.lib.nixosSystem { # Change this your-hostname for your hostname.
-       ..
+       ...
      };
    };
 ```
