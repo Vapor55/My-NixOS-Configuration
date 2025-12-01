@@ -18,9 +18,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = {self, nixpkgs, grub2-themes, zen-browser, home-manager } @ inputs: {
+  outputs = {self, nixpkgs, home-manager, grub2-themes, zen-browser, nur } @ inputs: {
     
   nixosConfigurations = {
       "negativo2" = nixpkgs.lib.nixosSystem {
