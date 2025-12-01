@@ -55,7 +55,26 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+
+    displayManager = {
+      lightdm = {
+          enable = true;
+          greeters.mini = {
+            enable = true;
+            user = "guilherme";
+            extraConfig = ''
+              [greeter]
+              show-password-label = false
+              [greeter-theme]
+              background-image = "./Assets/background/1209042.jpg"
+            '';
+          };
+        };
+      };
+    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "br";
@@ -109,22 +128,6 @@
     swapDevices = 1;
     priority = 100;
     # writebackDevice = "/dev/sdXN";
-  };
-
-  # Display Manager for Hyprland
-
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-
-      theme = "sddm-astronaut-theme";
-      extraPackages = with pkgs; [
-        kdePackages.qtsvg
-        kdePackages.qtmultimedia
-        kdePackages.qtvirtualkeyboard
-      ];
-    };
   };
 
   # Hyprland
