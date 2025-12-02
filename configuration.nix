@@ -55,25 +55,7 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-
-    displayManager = {
-      lightdm = {
-          enable = true;
-          greeters.mini = {
-            enable = true;
-            user = "guilherme";
-            extraConfig = ''
-              [greeter]
-              show-password-label = false
-              [greeter-theme]
-              background-image = "./Assets/background/1209042.jpg"
-            '';
-          };
-        };
-      };
-    };
+  # services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "br";
@@ -101,7 +83,7 @@
 
   users.users.guilherme = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "vboxusers" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = true;
     shell = pkgs.zsh; 
     packages = with pkgs; [
@@ -138,10 +120,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-
-    # SDDM Theme
-
-    sddm-astronaut
 
     # Hyprland Needed Packages
 
