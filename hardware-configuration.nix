@@ -32,7 +32,7 @@
   fileSystems."/mnt/external-hdd" = 
     { device = "/dev/disk/by-uuid/FCFD-77E7";
       fsType = "exfat";
-      options = [ "auto" "rw" "exec" "nofail"  ];
+      options = [ "auto" "rw" "exec" "uid=1000" "gid=100" "nofail" ];
     };
 
   swapDevices =
