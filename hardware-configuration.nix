@@ -29,6 +29,12 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/mnt/external-hdd" = 
+    { device = "/dev/disk/by-uuid/FCFD-77E7";
+      fsType = "exfat";
+      options = [ "auto" "rw" "exec" "nofail"  ];
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/31ca6f14-d5df-48bc-8eda-e002b0597aa8"; }
     ];
