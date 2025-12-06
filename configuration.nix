@@ -152,6 +152,7 @@
     gamemode
     gamescope
     protonplus
+    steamtinkerlaunch
     lutris
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
