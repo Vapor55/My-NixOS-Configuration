@@ -32,7 +32,13 @@
   fileSystems."/mnt/external-hdd" = 
     { device = "/dev/disk/by-uuid/FCFD-77E7";
       fsType = "exfat";
-      options = [ "auto" "rw" "exec" "uid=1000" "gid=100" "nofail" ];
+      options = [ "uid=1000" "gid=100" "nofail" ];
+    };
+
+  fileSystems."/mnt/pen-drive" =
+    { device = "/dev/disk/by-uuid/EED7-BCBC";
+      fsType = "vfat";
+      options = [ "uid=1000" "gid=100" "nofail"  ];
     };
 
   swapDevices =
