@@ -39,6 +39,14 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluez.overrideAttrs (oldAttrs: {
+      configureFlags = oldAttrs.configureFlags ++ [ "--enable-sixaxis" ];
+    });
+  };
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Belem";
 
@@ -111,6 +119,16 @@
     # writebackDevice = "/dev/sdXN";
   };
 
+  # Display Manager
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+
+    package = pkgs.kdePackages.sddm;
+    theme = "catppuccin-macchiato-mauve";
+  };
+
   # Hyprland
 
   programs.hyprland = {
@@ -120,6 +138,17 @@
   };
 
   environment.systemPackages = with pkgs; [
+
+    # SDDM Theme
+
+    (catppuccin-sddm.override {
+      flavor = "macchiato";
+      accent = "mauve";
+      font  = "Ubuntu Nerd Font";
+      fontSize = "9";
+      background = "${./Assets/background/1209042.jpg}";
+      loginBackground = true;
+    })
 
     # Hyprland Needed Packages
 
@@ -189,6 +218,9 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.roboto-mono
     nerd-fonts.space-mono
+    nerd-fonts.ubuntu
+    nerd-fonts.ubuntu-sans
+    nerd-fonts.ubuntu-mono
   ];
 
   fonts.fontconfig.enable = true;
