@@ -146,7 +146,7 @@
       accent = "mauve";
       font  = "Ubuntu Nerd Font";
       fontSize = "9";
-      background = "${./Assets/background/1209042.jpg}";
+      background = "${./Assets/background/1208837.png}";
       loginBackground = true;
     })
 
@@ -167,6 +167,7 @@
     waybar
     hyprpaper
     wofi
+    libnotify
     mako
     wl-clipboard
     slurp
