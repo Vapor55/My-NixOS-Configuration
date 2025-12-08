@@ -17,12 +17,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs = {self, nixpkgs, home-manager, grub2-themes, zen-browser, nur } @ inputs: {
@@ -34,7 +28,7 @@
         modules = [ 
           ./configuration.nix
           grub2-themes.nixosModules.default
-	];
+	      ];
       };
     };
 
@@ -44,7 +38,6 @@
         modules = [ ./home.nix ];
       };
     };
-
   };
 }
 
