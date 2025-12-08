@@ -57,7 +57,7 @@
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.capitaine-cursors;
-    name = "Capitaine-Cursors";
+    name = "capitaine-cursors";
     size = 16;
   };
 
@@ -65,17 +65,17 @@
     enable = true;
 
     theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
+      package = pkgs.colloid-gtk-theme;
+      name = "Colloid-Dark";
     };
 
     iconTheme = {
       package = pkgs.papirus-icon-theme;
-      name = "Papirus";
+      name = "Papirus-Dark";
     };
 
     font = {
-      name = "Hack Nerd Font";
+      name = "RobotoMono Nerd Font";
       size = 11;
     };
   };
