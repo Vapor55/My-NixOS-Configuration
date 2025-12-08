@@ -1,5 +1,5 @@
 # // home.nix
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "guilherme";
@@ -55,9 +55,9 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    # x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
+    x11.enable = true;
+    package = pkgs.capitaine-cursors;
+    name = "Capitaine-Cursors";
     size = 16;
   };
 
