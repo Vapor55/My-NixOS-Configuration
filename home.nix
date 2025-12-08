@@ -15,7 +15,6 @@
     audacious
     mpv
     vesktop
-    discord
   ];
 
   programs.zsh = {
