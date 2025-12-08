@@ -14,6 +14,7 @@
     feh
     audacious
     mpv
+    vesktop
     discord
   ];
 
