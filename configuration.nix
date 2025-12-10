@@ -180,13 +180,29 @@
     vim-full
     mangohud
     gamemode
-    gamescope
     protonplus
     steamtinkerlaunch
     lutris
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-  ]; 
+  ];
+
+  nixpkgs = { 
+    config.allowUnfree = true;
+    overlays = [
+      (final: _prev: {
+        gamescope = _prev.gamescope.overrideAttrs (oldAttrs: {
+          patches = (oldAttrs.patches or [ ]) ++ [
+            # Fornece o caminho para o seu novo arquivo de patch
+            # Esse caminho é relativo à localização DESTE arquivo overlay.
+            # Veja este comentário que referencia o patch:
+            # https://github.com/ValveSoftware/gamescope/issues/1934#issuecomment-3225349079
+            ./1867.patch
+          ];
+        });
+      })
+    ];
+  }; 
 
   # Optional, hint Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
