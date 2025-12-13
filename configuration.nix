@@ -91,15 +91,13 @@
 
   users.users.guilherme = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "vboxusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirtd" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = true;
     shell = pkgs.zsh; 
     packages = with pkgs; [
       tree
     ];
   };
-
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   programs.zsh.enable = true;
 
@@ -237,11 +235,16 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-  # VirtualBox and Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
+  # Virt-manager and Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
+
+  programs.virt-manager.enable = true;
 
   virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+    };
     waydroid.enable = true;
-    virtualbox.host.enable = true;
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
