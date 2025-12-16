@@ -29,18 +29,6 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/mnt/external-hdd" = 
-    { device = "/dev/disk/by-uuid/FCFD-77E7";
-      fsType = "exfat";
-      options = [ "uid=1000" "gid=100" "nofail" ];
-    };
-
-  fileSystems."/mnt/pen-drive" =
-    { device = "/dev/disk/by-uuid/EED7-BCBC";
-      fsType = "vfat";
-      options = [ "uid=1000" "gid=100" "nofail"  ];
-    };
-
   swapDevices =
     [ { device = "/dev/disk/by-uuid/31ca6f14-d5df-48bc-8eda-e002b0597aa8"; }
     ];
