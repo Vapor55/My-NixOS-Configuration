@@ -32,7 +32,7 @@
   fileSystems."/mnt/external-hdd" =
     { device = "/dev/disk/by-uuid/3cedc743-b146-4543-9ce7-34bf9e4d26d6";
       fsType = "xfs";
-      options = [ "auto" "exec" "nofail" ];
+      options = [ "auto" "rw" "exec" "nofail" ];
     };
 
   fileSystems."/mnt/pen-drive" =
