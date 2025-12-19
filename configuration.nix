@@ -144,7 +144,7 @@
       accent = "mauve";
       font  = "Ubuntu Nerd Font";
       fontSize = "9";
-      background = "${./Assets/Background/1208837.png}";
+      background = "${./Assets/Background/virtual_bg_01_unit06.png}";
       loginBackground = true;
     })
 
