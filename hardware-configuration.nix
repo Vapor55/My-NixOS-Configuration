@@ -30,16 +30,16 @@
     };
 
   fileSystems."/mnt/external-hdd" =
-    { device = "/dev/disk/by-uuid/3cedc743-b146-4543-9ce7-34bf9e4d26d6";
-      fsType = "xfs";
+    { device = "/dev/disk/by-uuid/a36b6e59-12d2-4344-a66d-9b136d9ed262";
+      fsType = "ext4";
       options = [ "auto" "rw" "exec" "nofail" ];
     };
 
-  fileSystems."/mnt/pen-drive" =
-    { device = "/dev/disk/by-uuid/AAB8-2711";
-      fsType = "vfat";
-      options = [ "uid=1000" "gid=100" "nofail" ];
-    };
+  # fileSystems."/mnt/pen-drive" =
+  #   { device = "/dev/disk/by-uuid/AAB8-2711";
+  #     fsType = "vfat";
+  #     options = [ "uid=1000" "gid=100" "nofail" ];
+  #   };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/31ca6f14-d5df-48bc-8eda-e002b0597aa8"; }
