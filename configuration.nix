@@ -151,6 +151,7 @@
     # Hyprland Needed Packages
 
     kitty # required for the default Hyprland config
+    ghostty
 
     # Dolphin File Manager
 
