@@ -2,9 +2,15 @@
 { config, pkgs, inputs, ... }:
 
 {
+
+  # Home Manager configuration
+
   home.username = "guilherme";
   home.homeDirectory = "/home/guilherme";
   home.stateVersion = "26.05"; # Or your desired NixOS release version
+
+  # Home Manager Packages
+
   home.packages = with pkgs; [
     htop
     btop
@@ -16,6 +22,8 @@
     audacious
     mpv
   ];
+
+  # Z-Shell configuration at Home Manager
 
   programs.zsh = {
     enable = true;
@@ -53,6 +61,8 @@
     };
   };
 
+  # GTK Theme, Icons, Cursor and Fonts configurations at Home Manager
+
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -80,11 +90,15 @@
     };
   };
 
+  # Git configuration
+
   programs.git = {
     enable = true;
     settings.user.name  = "Guilherme Costa de Menezes";
     settings.user.email = "guilhermecosta6777@gmail.com";
   };
+
+  # Enable unfree Packages
 
   nixpkgs.config.allowUnfree = true;
 }

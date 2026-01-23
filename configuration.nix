@@ -39,6 +39,8 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+  # Enable Bluetooth and Blueman
+
   hardware.bluetooth = {
     enable = true;
   };
@@ -97,7 +99,11 @@
     ];
   };
 
+  # Enable Z-Shell
+
   programs.zsh.enable = true;
+
+  # NH helper
 
   programs.nh = {
     enable = true;
@@ -105,6 +111,8 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/etc/nixos"; # sets NH_OS_FLAKE variable for you  
   };
+
+  # Zram
 
   zramSwap = {
     enable = true;
@@ -136,6 +144,8 @@
     withUWSM = true;
     xwayland.enable = true;
   };
+
+  # System Packages
 
   environment.systemPackages = with pkgs; [
 
@@ -184,6 +194,12 @@
   # Optional, hint Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # Flatpak
+
+  services.flatpak.enable = true;
+
+  # Steam
+
   programs.steam = {
     enable = true;
     # gamescopeSession.enable = true;
@@ -197,10 +213,14 @@
     waydroid.enable = true;
   };
 
+  # Allow unfree package to Steam
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-unwrapped"
   ];
+
+  # Fonts
 
   fonts.packages = with pkgs; [
     noto-fonts
