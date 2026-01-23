@@ -86,7 +86,7 @@
     };
 
     font = {
-      name = "Noto Fonts";
+      name = "Noto Sans";
       size = 9;
     };
   };
