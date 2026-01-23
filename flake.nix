@@ -14,7 +14,7 @@
   outputs = {self, nixpkgs, home-manager, } @ inputs: {
     
     nixosConfigurations = {
-      "negativo2" = nixpkgs.lib.nixosSystem {
+      "Gui-Negativo-2" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = [./configuration.nix ];
@@ -22,7 +22,7 @@
     };
 
     homeConfigurations = {
-      "guilherme@negativo2" = home-manager.lib.homeManagerConfiguration {
+      "guilherme@Gui-Negativo-2" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [ ./home.nix ];
       };
