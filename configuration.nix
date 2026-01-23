@@ -41,9 +41,6 @@
 
   hardware.bluetooth = {
     enable = true;
-    package = pkgs.bluez.overrideAttrs (oldAttrs: {
-      configureFlags = oldAttrs.configureFlags ++ [ "--enable-sixaxis" ];
-    });
   };
   services.blueman.enable = true;
 
@@ -57,9 +54,10 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "pt_BR.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
+    # font = "Lat2-Terminus16";
+    font = "ter-132b"
     keyMap = "br-abnt2";
-    useXkbConfig = false; # use xkb.options in tty.
+    useXkbConfig = true; # use xkb.options in tty.
   };
 
   # Enable the X11 windowing system.
@@ -91,7 +89,7 @@
 
   users.users.guilherme = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = true;
     shell = pkgs.zsh; 
     packages = with pkgs; [
@@ -122,6 +120,10 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    autoLogin = {
+        enable = true;
+        user = "guilherme";
+      };
 
     package = pkgs.kdePackages.sddm;
     theme = "catppuccin-macchiato-mauve";
@@ -131,7 +133,7 @@
 
   programs.hyprland = {
     enable = true;
-    # withUWSM = true;
+    withUWSM = true;
     xwayland.enable = true;
   };
 
@@ -142,16 +144,15 @@
     (catppuccin-sddm.override {
       flavor = "macchiato";
       accent = "mauve";
-      font  = "Ubuntu Nerd Font";
+      font  = "Noto Fonts";
       fontSize = "9";
-      background = "${./Assets/Background/virtual_bg_01_unit06.png}";
+      background = "${./Assets/Background/1371395.jpeg}";
       loginBackground = true;
     })
 
     # Hyprland Needed Packages
 
     kitty # required for the default Hyprland config
-    ghostty
 
     # Dolphin File Manager
 
@@ -177,54 +178,8 @@
 
     networkmanagerapplet
     vim-full
-    mangohud
-    gamemode
-    protonplus
-    steamtinkerlaunch
-    lutris
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-    # Wine
-
-    # support both 32-bit and 64-bit applications
-    wineWowPackages.stable
-
-    # support 32-bit only
-    wine
-
-    # support 64-bit only
-    (wine.override { wineBuild = "wine64"; })
-
-    # support 64-bit only
-    wine64
-
-    # wine-staging (version with experimental features)
-    wineWowPackages.staging
-
-    # winetricks (all versions)
-    winetricks
-
-    # native wayland support (unstable)
-    wineWowPackages.waylandFull
-
-  ];
-
-  nixpkgs = { 
-    config.allowUnfree = true;
-    overlays = [
-      (final: _prev: {
-        gamescope = _prev.gamescope.overrideAttrs (oldAttrs: {
-          patches = (oldAttrs.patches or [ ]) ++ [
-            # Fornece o caminho para o seu novo arquivo de patch
-            # Esse caminho é relativo à localização DESTE arquivo overlay.
-            # Veja este comentário que referencia o patch:
-            # https://github.com/ValveSoftware/gamescope/issues/1934#issuecomment-3225349079
-            ./1867.patch
-          ];
-        });
-      })
-    ];
-  }; 
+  ]; 
 
   # Optional, hint Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -236,15 +191,9 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-  # Virt-manager and Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
-
-  programs.virt-manager.enable = true;
+  # Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
 
   virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
-    };
     waydroid.enable = true;
   };
 

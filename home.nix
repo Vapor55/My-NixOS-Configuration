@@ -8,13 +8,13 @@
   home.packages = with pkgs; [
     htop
     btop
+    brave
     vscode
     fastfetch
     onefetch
-    feh
+    sxiv
     audacious
     mpv
-    vesktop
   ];
 
   programs.zsh = {

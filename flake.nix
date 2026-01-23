@@ -9,26 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    grub2-themes = {
-      url = "github:vinceliuice/grub2-themes";
-    };
-
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = {self, nixpkgs, home-manager, grub2-themes, zen-browser, } @ inputs: {
+  outputs = {self, nixpkgs, home-manager, } @ inputs: {
     
     nixosConfigurations = {
       "negativo2" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-        modules = [ 
-          ./configuration.nix
-          grub2-themes.nixosModules.default
-	      ];
+        modules = [./configuration.nix ];
       };
     };
 
