@@ -18,6 +18,7 @@
     vscode
     fastfetch
     onefetch
+    ncdu
     sxiv
     audacious
     mpv
