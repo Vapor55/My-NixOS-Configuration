@@ -86,8 +86,8 @@
     };
 
     font = {
-      name = "RobotoMono Nerd Font";
-      size = 11;
+      name = "Noto Fonts";
+      size = 9;
     };
   };
 
