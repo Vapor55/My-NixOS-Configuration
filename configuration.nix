@@ -223,6 +223,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-unwrapped"
+    "Oracle_VirtualBox_Extension_Pack"
   ];
 
   # Fonts
