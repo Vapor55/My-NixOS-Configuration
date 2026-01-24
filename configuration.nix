@@ -10,7 +10,11 @@
     ./hardware-configuration.nix
     ];
 
+  # NixOS Flakes
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # GRUB default bootloader
 
   boot.loader = {
     efi = {
@@ -23,6 +27,8 @@
       device = "nodev";
     };
   };
+
+  # Modprobe options
 
   boot.extraModprobeConfig = ''
     options snd-intel-dspcfg dsp_driver=1
