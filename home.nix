@@ -39,6 +39,7 @@
       la = "ls -a";
       update = "nh os switch";
       update-home = "nh home switch";
+      clean = "nh clean all";
     };
 
     history.size = 10000;
