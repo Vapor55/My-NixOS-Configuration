@@ -203,11 +203,20 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-  # Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
+  # VirtualBox and Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
 
   virtualisation = {
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+
     waydroid.enable = true;
   };
+
+  # Vbox user permission
+
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   # Allow unfree package to Steam
 
