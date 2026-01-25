@@ -28,6 +28,10 @@
     };
   };
 
+  # Linux Zen Kernel
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+
   # Modprobe options
 
   boot.extraModprobeConfig = ''
