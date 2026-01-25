@@ -15,7 +15,6 @@
     htop
     btop
     brave
-    vscode
     fastfetch
     onefetch
     ncdu
@@ -23,6 +22,14 @@
     audacious
     mpv
   ];
+
+  # Visual Studio Code
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+    mutableExtensionsDir = true;
+  };
 
   # Z-Shell configuration at Home Manager
 
