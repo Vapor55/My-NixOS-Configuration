@@ -96,8 +96,6 @@
 
   programs.git = {
     enable = true;
-    settings.user.name  = "Guilherme Costa de Menezes";
-    settings.user.email = "guilhermecosta6777@gmail.com";
   };
 
   # Enable unfree Packages
