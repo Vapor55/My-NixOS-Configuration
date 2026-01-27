@@ -25,6 +25,7 @@
       efiSupport = true;
       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       device = "nodev";
+      theme = "/boot/grub/themes/alya-grub-theme/theme.txt"; # path to your grub theme
     };
   };
 
