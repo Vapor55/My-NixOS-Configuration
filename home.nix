@@ -16,6 +16,7 @@
     btop
     brave
     vscode
+    git
     fastfetch
     onefetch
     ncdu
@@ -90,12 +91,6 @@
       name = "Noto Sans";
       size = 9;
     };
-  };
-
-  # Git configuration
-
-  programs.git = {
-    enable = true;
   };
 
   # Enable unfree Packages
