@@ -21,8 +21,12 @@
     onefetch
     ncdu
     sxiv
+    gimp
     audacious
     mpv
+    gamemode
+    gamescope
+    lutris
   ];
 
   # Z-Shell configuration at Home Manager
