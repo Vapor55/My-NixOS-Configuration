@@ -4,6 +4,18 @@
 
 { config, lib, pkgs, inputs, ... }:
 
+let
+  localGrubTheme = pkgs.stdenv.mkDerivation {
+    pname = "alya-grub-theme";
+    version = "1.0";
+    src = ./Assets/Grub/Theme/alya-grub-theme;
+    installPhase = ''
+      mkdir -p $out/share/grub/themes/alya-grub-theme
+      cp -r * $out/share/grub/themes/alya-grub-theme/
+    '';
+  };
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -25,7 +37,7 @@
       efiSupport = true;
       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       device = "nodev";
-      theme = "/boot/grub/themes/alya-grub-theme/theme.txt"; # path to your grub theme
+      theme = "${localGrubTheme}/share/grub/themes/alya-grub-theme"; # path to your grub theme
     };
   };
 
