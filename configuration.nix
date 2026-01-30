@@ -41,10 +41,6 @@ in
     };
   };
 
-  # Linux Zen Kernel
-
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-
   # Modprobe options
 
   boot.extraModprobeConfig = ''
@@ -193,7 +189,10 @@ in
 
     # Others Hyprland necessary packages
 
+    xdg-utils
+    xdg-desktop-portal-wlr
     waybar
+    mpvpaper
     hyprpaper
     wofi
     libnotify
@@ -226,6 +225,26 @@ in
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+    programs.obs-studio = {
+    enable = true;
+
+    # optional Nvidia hardware acceleration
+    # package = (
+    #   pkgs.obs-studio.override {
+    #     cudaSupport = true;
+    #   }
+    # );
+
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      # obs-vaapi #optional AMD hardware acceleration
+      obs-gstreamer
+      obs-vkcapture
+    ];
+  };
+
   # Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
 
   virtualisation.waydroid.enable = true;
@@ -235,7 +254,6 @@ in
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-unwrapped"
-    "Oracle_VirtualBox_Extension_Pack"
   ];
 
   # Fonts
