@@ -15,6 +15,7 @@
     htop
     btop
     brave
+    discord
     vscode
     git
     fastfetch
@@ -28,6 +29,18 @@
     gamescope
     lutris
   ];
+
+  xdg.userDirs = {
+    enable = true;
+    desktop = "Área de Trabalho";
+    documents = "Documentos";
+    download = "Downloads";
+    pictures = "Imagens";
+    videos = "Vídeos";
+    music = "Música";
+    templates = "Modelos";
+    publicShare = "Público";
+  };
 
   # Z-Shell configuration at Home Manager
 
@@ -44,6 +57,7 @@
       la = "ls -a";
       update = "nh os switch";
       update-home = "nh home switch";
+      update-full = "nh os switch && nh home switch";
       clean = "nh clean all";
     };
 
