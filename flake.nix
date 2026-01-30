@@ -12,7 +12,7 @@
   };
 
   outputs = {self, nixpkgs, home-manager, } @ inputs: {
-    
+
     nixosConfigurations = {
       "Gui-Negativo-2" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
