@@ -152,6 +152,20 @@ in
     };
   };
 
+  # GVFS, UDisks2 and Polkit needed for Dolphin in Hyprland
+
+  services = {
+    gvfs.enable = true;
+    udisks2.enable = true;
+  };
+
+  security.polkit.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+  };
+
   # Hyprland
 
   programs.hyprland = {
@@ -182,6 +196,8 @@ in
     # Dolphin File Manager
 
     kdePackages.dolphin # This is the actual dolphin package
+    kdePackages.dolphin-plugins # for extra dolphin features like archive handling, trash support, etc. 
+    kdePackages.kio-gdrive # to access Google Drive filesystems
     kdePackages.kio # needed since 25.11
     kdePackages.kio-fuse #to mount remote filesystems via FUSE
     kdePackages.kio-extras #extra protocols support (sftp, fish and more)
@@ -190,7 +206,7 @@ in
     # Others Hyprland necessary packages
 
     xdg-utils
-    xdg-desktop-portal-wlr
+    hyprpolkitagent
     waybar
     mpvpaper
     hyprpaper
@@ -201,10 +217,12 @@ in
     slurp
     grim
     swappy
+    wf-recorder
 
     # Others Packages
 
     networkmanagerapplet
+    gparted
     vim-full
 
   ]; 
@@ -223,26 +241,6 @@ in
     # gamescopeSession.enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
-    programs.obs-studio = {
-    enable = true;
-
-    # optional Nvidia hardware acceleration
-    # package = (
-    #   pkgs.obs-studio.override {
-    #     cudaSupport = true;
-    #   }
-    # );
-
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-backgroundremoval
-      obs-pipewire-audio-capture
-      # obs-vaapi #optional AMD hardware acceleration
-      obs-gstreamer
-      obs-vkcapture
-    ];
   };
 
   # Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
