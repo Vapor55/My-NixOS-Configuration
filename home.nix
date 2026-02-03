@@ -27,8 +27,11 @@
     mpv
     gamemode
     gamescope
+    mangohud
     lutris
   ];
+
+    programs.home-manager.enable = true;
 
     xdg.desktopEntries.nemo = {
       name = "Nemo";
