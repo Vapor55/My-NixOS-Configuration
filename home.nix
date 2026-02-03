@@ -84,6 +84,8 @@
     publicShare = "Público";
   };
 
+  xdg.configFile."niri/config.kdl".source = ./config.kdl;
+
   # Z-Shell configuration at Home Manager
 
   programs.zsh = {
