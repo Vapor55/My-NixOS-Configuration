@@ -147,7 +147,7 @@ in
     };
 
     autoLogin = {
-      enable = true;
+      enable = false;
       user = "guilherme";
     };
   };
@@ -160,11 +160,23 @@ in
   };
 
   security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true; # secret service
+  security.pam.services.swaylock = {};
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+  xdg.portal.config.niri = {
+    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
   };
+
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+  # };
+
+  # Niri
+
+  programs.niri.enable = true;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1 slack --wayland-text-input-version=3"; 
 
   # Hyprland
 
@@ -173,6 +185,8 @@ in
     withUWSM = true;
     xwayland.enable = true;
   };
+
+  programs.waybar.enable = true;
 
   # System Packages
 
@@ -185,39 +199,43 @@ in
       accent = "mauve";
       font  = "Noto Fonts";
       fontSize = "9";
-      background = "${./Assets/Background/1371395.jpeg}";
+      background = "${./Assets/Background/virtual_bg_01_unit06.png}";
       loginBackground = true;
     })
 
-    # Hyprland Needed Packages
+    # Niri needed Packages
 
-    kitty # required for the default Hyprland config
-
-    # Dolphin File Manager
-
-    kdePackages.dolphin # This is the actual dolphin package
-    kdePackages.dolphin-plugins # for extra dolphin features like archive handling, trash support, etc. 
-    kdePackages.kio-gdrive # to access Google Drive filesystems
-    kdePackages.kio # needed since 25.11
-    kdePackages.kio-fuse #to mount remote filesystems via FUSE
-    kdePackages.kio-extras #extra protocols support (sftp, fish and more)
-    kdePackages.qtsvg
-
-    # Others Hyprland necessary packages
-
-    xdg-utils
-    hyprpolkitagent
-    waybar
-    mpvpaper
-    hyprpaper
-    wofi
+    kitty
+    nemo-with-extensions
+    fuzzel
+    swaylock
     libnotify
     mako
     wl-clipboard
+    swayidle
+    swaybg
     slurp
     grim
     swappy
     wf-recorder
+    xwayland-satellite
+
+    # Dolphin File Manager
+
+    # kdePackages.dolphin # This is the actual dolphin package
+    # kdePackages.dolphin-plugins # for extra dolphin features like archive handling, trash support, etc. 
+    # kdePackages.kio-gdrive # to access Google Drive filesystems
+    # kdePackages.kio # needed since 25.11
+    # kdePackages.kio-fuse #to mount remote filesystems via FUSE
+    # kdePackages.kio-extras #extra protocols support (sftp, fish and more)
+    # kdePackages.qtsvg
+
+    # Others Hyprland necessary packages
+
+    hyprpolkitagent
+    mpvpaper
+    hyprpaper
+    wofi
 
     # Others Packages
 
@@ -226,9 +244,6 @@ in
     vim-full
 
   ]; 
-
-  # Optional, hint Electron apps to use Wayland:
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Flatpak
 

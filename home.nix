@@ -30,6 +30,45 @@
     lutris
   ];
 
+    xdg.desktopEntries.nemo = {
+      name = "Nemo";
+      exec = "${pkgs.nemo-with-extensions}/bin/nemo";
+    };
+   xdg.mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "inode/directory" = [ "nemo.desktop" ];
+        "application/x-gnome-saved-search" = [ "nemo.desktop" ];
+    };
+  };
+  dconf = {
+    settings = {
+      "org/cinnamon/desktop/interface" = {
+        can-change-accels = true;
+      };
+      "org/cinnamon/desktop/applications/terminal" = {
+        exec = "kitty";
+        # exec-arg = ""; # argument
+      };
+    };
+  };
+  home.file = {
+    ".gnome2/accels/nemo".text = ''
+    (gtk_accel_path "<Actions>/DirViewActions/OpenInTerminal" "F4")
+    '';
+};
+  services.udiskie = {
+    enable = true;
+    settings = {
+      # workaround for
+      # https://github.com/nix-community/home-manager/issues/632
+      program_options = {
+        # replace with your favorite file manager
+        file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
+      };
+    };
+  };
+
   xdg.userDirs = {
     enable = true;
     desktop = "Área de Trabalho";
@@ -41,18 +80,6 @@
     templates = "Modelos";
     publicShare = "Público";
   };
-
-  services.udiskie = {
-    enable = true;
-    settings = {
-        # workaround for
-        # https://github.com/nix-community/home-manager/issues/632
-        program_options = {
-            # replace with your favorite file manager
-            file_manager = "${pkgs.kdePackages.dolphin}/bin/dolphin";
-        };
-    };
-};
 
   # Z-Shell configuration at Home Manager
 
