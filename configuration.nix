@@ -178,14 +178,6 @@ in
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1 slack --wayland-text-input-version=3"; 
 
-  # Hyprland
-
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
-  };
-
   programs.waybar.enable = true;
 
   # System Packages
@@ -232,17 +224,16 @@ in
 
     # Others Hyprland necessary packages
 
-    hyprpolkitagent
-    mpvpaper
-    hyprpaper
-    wofi
+    # hyprpolkitagent
+    # mpvpaper
+    # hyprpaper
+    # wofi
 
     # Others Packages
 
     networkmanagerapplet
     gparted
     vim-full
-
   ]; 
 
   # Flatpak
