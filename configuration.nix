@@ -234,6 +234,7 @@ in
     networkmanagerapplet
     gparted
     vim-full
+    xarchiver
   ]; 
 
   # Flatpak
