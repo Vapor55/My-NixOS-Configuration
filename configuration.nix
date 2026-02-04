@@ -147,7 +147,7 @@ in
     };
 
     autoLogin = {
-      enable = false;
+      enable = true;
       user = "guilherme";
     };
   };
