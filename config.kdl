@@ -271,7 +271,7 @@ layout {
 // spawn-at-startup "waybar"
 
 // Auto Start Scripts and Apps
-spawn-sh-at-startup "swaybg -i $HOME/Imagens/Wallpapers/Kessoku-Band/1296314.png -m fill"
+spawn-sh-at-startup "swaybg -i /etc/nixosAssets/Wallpapers/Meiko/meiko-card.jpeg -m fill"
 spawn-sh-at-startup "steam -silent %U &"
 spawn-sh-at-startup "discord --start-minimized &"
 
