@@ -234,7 +234,31 @@ in
     networkmanagerapplet
     gparted
     vim-full
-    xarchiver
+    file-roller
+    unzip
+    unrar
+    p7zip
+
+    # support both 32-bit and 64-bit applications
+    wineWowPackages.stable
+
+    # support 32-bit only
+    wine
+
+    # support 64-bit only
+    (wine.override { wineBuild = "wine64"; })
+
+    # support 64-bit only
+    wine64
+
+    # wine-staging (version with experimental features)
+    wineWowPackages.staging
+
+    # winetricks (all versions)
+    winetricks
+
+    # native wayland support (unstable)
+    wineWowPackages.waylandFull
   ]; 
 
   # Flatpak
@@ -259,6 +283,7 @@ in
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-unwrapped"
+    "unrar"
   ];
 
   # Fonts
