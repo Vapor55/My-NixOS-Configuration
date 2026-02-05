@@ -16,6 +16,7 @@
     brave
     discord
     vscode
+    gcc
     git
     fastfetch
     onefetch
