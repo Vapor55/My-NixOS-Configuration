@@ -31,12 +31,25 @@
     lutris
   ];
 
-    programs.home-manager.enable = true;
+  # KDE Connect
 
-    xdg.desktopEntries.nemo = {
+  home-manager.users.username.services.kdeconnect.enable = true;
+
+  networking.firewall = rec {
+    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
+
+  # Home Manager Switcher
+
+  programs.home-manager.enable = true;
+
+  # Nemo XDG config
+
+  xdg.desktopEntries.nemo = {
       name = "Nemo";
       exec = "${pkgs.nemo-with-extensions}/bin/nemo";
-    };
+  };
    xdg.mimeApps = {
       enable = true;
       defaultApplications = {
@@ -59,7 +72,10 @@
     ".gnome2/accels/nemo".text = ''
     (gtk_accel_path "<Actions>/DirViewActions/OpenInTerminal" "F4")
     '';
-};
+  };
+
+  # Udiskie config
+
   services.udiskie = {
     enable = true;
     settings = {
@@ -72,6 +88,8 @@
     };
   };
 
+  # XDG User Dirs
+
   xdg.userDirs = {
     enable = true;
     desktop = "Área de Trabalho";
@@ -83,6 +101,8 @@
     templates = "Modelos";
     publicShare = "Público";
   };
+
+  # Niri configuration
 
   xdg.configFile."niri/config.kdl".source = ./config.kdl;
 
