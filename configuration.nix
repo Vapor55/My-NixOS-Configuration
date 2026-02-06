@@ -265,6 +265,10 @@ in
 
   services.flatpak.enable = true;
 
+  # KDE Connect
+
+  programs.kdeconnect.enable = true;
+
   # Steam
 
   programs.steam = {
@@ -325,8 +329,8 @@ in
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [{ from = 1714; to = 1764; }];
+  networking.firewall.allowedUDPPorts = [{ from = 1714; to = 1764; }];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
