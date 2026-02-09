@@ -20,6 +20,11 @@ in
   imports =
     [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    # Separated Packages
+    ./desktop.nix
+    ./Programs/dolphin.nix
+    ./Programs/steam.nix
     ];
 
   # NixOS Flakes
@@ -57,7 +62,7 @@ in
   hardware.bluetooth = {
     enable = true;
   };
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Belem";
@@ -99,6 +104,10 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  # Flatpak
+
+  services.flatpak.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
   users.users.guilherme = {
@@ -135,109 +144,25 @@ in
     # writebackDevice = "/dev/sdXN";
   };
 
-  # Display Manager
+  # Waydroid
 
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-
-      package = pkgs.kdePackages.sddm;
-      theme = "catppuccin-macchiato-mauve";
-    };
-
-    autoLogin = {
-      enable = true;
-      user = "guilherme";
-    };
-  };
-
-  # GVFS, UDisks2 and Polkit needed for Dolphin in Hyprland
-
-  services = {
-    gvfs.enable = true;
-    udisks2.enable = true;
-  };
-
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true; # secret service
-  security.pam.services.swaylock = {};
-
-  xdg.portal.config.niri = {
-    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
-  };
-
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-  # };
-
-  # Niri
-
-  programs.niri.enable = true;
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1 slack --wayland-text-input-version=3"; 
-
-  programs.waybar.enable = true;
+  virtualisation.waydroid.enable = true;
 
   # System Packages
 
   environment.systemPackages = with pkgs; [
+    # Common Packages
 
-    # SDDM Theme
-
-    (catppuccin-sddm.override {
-      flavor = "macchiato";
-      accent = "mauve";
-      font  = "Noto Fonts";
-      fontSize = "9";
-      background = "${./Assets/Background/virtual_bg_01_unit06.png}";
-      loginBackground = true;
-    })
-
-    # Niri needed Packages
-
-    kitty
-    nemo-with-extensions
-    fuzzel
-    swaylock
-    libnotify
-    mako
     wl-clipboard
-    swayidle
-    swaybg
-    slurp
-    grim
-    swappy
-    wf-recorder
-    xwayland-satellite
-
-    # Dolphin File Manager
-
-    # kdePackages.dolphin # This is the actual dolphin package
-    # kdePackages.dolphin-plugins # for extra dolphin features like archive handling, trash support, etc. 
-    # kdePackages.kio-gdrive # to access Google Drive filesystems
-    # kdePackages.kio # needed since 25.11
-    # kdePackages.kio-fuse #to mount remote filesystems via FUSE
-    # kdePackages.kio-extras #extra protocols support (sftp, fish and more)
-    # kdePackages.qtsvg
-
-    # Others Hyprland necessary packages
-
-    # hyprpolkitagent
-    # mpvpaper
-    # hyprpaper
-    # wofi
-
-    # Others Packages
-
-    networkmanagerapplet
+    # networkmanagerapplet
     gparted
     vim-full
-    file-roller
+    # file-roller
     unzip
     unrar
     p7zip
+
+    # Wine
 
     # support both 32-bit and 64-bit applications
     wineWowPackages.stable
@@ -261,35 +186,6 @@ in
     wineWowPackages.waylandFull
   ]; 
 
-  # Flatpak
-
-  services.flatpak.enable = true;
-
-  # KDE Connect
-
-  programs.kdeconnect.enable = true;
-
-  # Steam
-
-  programs.steam = {
-    enable = true;
-    # gamescopeSession.enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
-  # Waydroid to play Clash Royale and Hatsune Miku: Colorful Stage
-
-  virtualisation.waydroid.enable = true;
-
-  # Allow unfree package to Steam
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-unwrapped"
-    "unrar"
-  ];
-
   # Fonts
 
   fonts.packages = with pkgs; [
@@ -307,6 +203,12 @@ in
   ];
 
   fonts.fontconfig.enable = true;
+
+  # Allow unfree package to Steam
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "unrar"
+  ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -332,11 +234,6 @@ in
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
-    allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
-  };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
