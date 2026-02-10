@@ -7,7 +7,6 @@
   imports = [
     # Separated Packages
     ./Programs/xdg-userdirs.nix
-    ./Programs/udiskie.nix
     ./Programs/zsh.nix
     ./Programs/gtk.nix
   ];
