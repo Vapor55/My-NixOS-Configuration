@@ -15,13 +15,13 @@
     enable = true;
 
     theme = {
-      package = pkgs.colloid-gtk-theme;
-      name = "Colloid-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
+      name = "Breeze-Dark";
     };
 
     iconTheme = {
-      package = pkgs.reversal-icon-theme;
-      name = "Reversal-Dark";
+      package = pkgs.colloid-icon-theme;
+      name = "Colloid-Dark";
     };
 
     font = {
