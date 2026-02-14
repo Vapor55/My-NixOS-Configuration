@@ -30,6 +30,7 @@
     fastfetch
     onefetch
     ncdu
+    kdePackages.filelight
     sxiv
     gimp
     audacious
