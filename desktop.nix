@@ -38,7 +38,8 @@
       accent = "mauve";
       font  = "Noto Fonts";
       fontSize = "9";
-      background = "${./Assets/Background/virtual_bg_01_unit06.png}";
+      background = "${./Assets/Wallpapers/Muse-Dash/1333023.png
+}";
       loginBackground = true;
     })
   ];
