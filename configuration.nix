@@ -34,6 +34,10 @@
     };
   };
 
+  # Linux Zen
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   # Modprobe options
 
   boot.extraModprobeConfig = ''
@@ -100,7 +104,7 @@
 
   users.users.guilherme = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "vboxusers" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = true;
     shell = pkgs.zsh; 
     packages = with pkgs; [
@@ -131,6 +135,12 @@
     priority = 100;
     # writebackDevice = "/dev/sdXN";
   };
+
+  # Virtualbox
+
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   # Waydroid
 
@@ -192,11 +202,9 @@
 
   fonts.fontconfig.enable = true;
 
-  # Allow unfree package to Steam
+  # Allow unfree package
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "unrar"
-  ];
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
