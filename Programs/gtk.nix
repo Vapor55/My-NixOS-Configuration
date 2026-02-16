@@ -20,8 +20,8 @@
     };
 
     iconTheme = {
-      package = pkgs.kdePackages.breeze-icons;
-      name = "Breeze-Dark";
+      package = pkgs.colloid-icon-theme;
+      name = "Colloid-Dark";
     };
 
     font = {
