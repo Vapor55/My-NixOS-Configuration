@@ -23,6 +23,7 @@
     htop
     btop
     brave
+    pear-desktop
     discord
     vscode
     gcc
