@@ -24,6 +24,7 @@
     btop
     brave
     pear-desktop
+    cava
     discord
     vscode
     gcc
