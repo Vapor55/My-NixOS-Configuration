@@ -42,6 +42,8 @@
 
   boot.extraModprobeConfig = ''
     options snd-intel-dspcfg dsp_driver=1
+    blacklist kvm_intel
+    blacklist kvm
   '';
 
   networking.hostName = "Gui-Negativo-2"; # Define your hostname.
