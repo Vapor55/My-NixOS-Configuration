@@ -9,6 +9,7 @@
     ./Programs/xdg-userdirs.nix
     ./Programs/zsh.nix
     ./Programs/gtk.nix
+    ./Programs/cursor-icon.nix
   ];
 
   # Home Manager configuration
@@ -28,6 +29,7 @@
     discord
     vscode
     gcc
+    jdk
     git
     fastfetch
     onefetch
