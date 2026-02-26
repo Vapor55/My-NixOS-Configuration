@@ -1,15 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  # GTK Theme, Icons, Cursor and Fonts configurations at Home Manager
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.capitaine-cursors;
-    name = "capitaine-cursors";
-    size = 16;
-  };
+  # GTK Theme, Icons and Fonts configurations at Home Manager
 
   gtk = {
     enable = true;

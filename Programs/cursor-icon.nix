@@ -1,6 +1,6 @@
-( config, pkgs, ... ):
+{ config, pkgs, ... }:
 
-(
+{
   # Miku cursor icon theme    
 
   home.pointerCursor = 
@@ -8,7 +8,7 @@
       getFrom = url: hash: name: {
           gtk.enable = true;
           x11.enable = true;
-          name = Miku Cursor;
+          name = name;
           size = 36;
           package = 
             pkgs.runCommand "moveUp" {} ''
@@ -22,6 +22,6 @@
     in
       getFrom 
         "https://github.com/supermariofps/hatsune-miku-windows-linux-cursors/releases/download/1.2.6/miku-cursor-linux.tar.xz"
-        "sha256-12963wzw474ygy6aj32x4jcwh4344w7l2dalqddmfdw9jb1yw4va="
+        "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
         "Miku-Cursor";
-)
+}
