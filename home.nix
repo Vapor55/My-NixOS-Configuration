@@ -29,7 +29,6 @@
     discord
     vscode
     gcc
-    jdk
     git
     fastfetch
     onefetch
