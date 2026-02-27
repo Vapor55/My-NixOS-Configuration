@@ -8,8 +8,9 @@
     libraries = with pkgs;
       [
         # java
-        openjdk21 # LTS # Match java.enable version
-        openjfx24 # even used?
+        temurin-bin
+        # openjdk21 # LTS # Match java.enable version
+        # openjfx24 # even used?
 
         # OpenGL
         mesa
