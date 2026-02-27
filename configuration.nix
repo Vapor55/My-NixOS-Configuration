@@ -11,6 +11,7 @@
 
     # Separated Packages
     ./desktop.nix
+    ./Programs/nix-ld.nix
     ./Programs/dolphin.nix
     ./Programs/steam.nix
     ];
