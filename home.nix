@@ -38,6 +38,7 @@
     gimp
     audacious
     mpv
+    temurin-bin
     gamemode
     gamescope
     mangohud

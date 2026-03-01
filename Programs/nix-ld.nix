@@ -8,7 +8,7 @@
     libraries = with pkgs;
       [
         # java
-        temurin-bin
+
         # openjdk21 # LTS # Match java.enable version
         # openjfx24 # even used?
 
