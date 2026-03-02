@@ -12,6 +12,7 @@
     # Separated Packages
     ./desktop.nix
     ./Programs/nix-ld.nix
+    ./Programs/audiorelay-driver.nix
     ./Programs/dolphin.nix
     ./Programs/steam.nix
     ];
@@ -43,8 +44,6 @@
 
   boot.extraModprobeConfig = ''
     options snd-intel-dspcfg dsp_driver=1
-    blacklist kvm_intel
-    blacklist kvm
   '';
 
   networking.hostName = "Gui-Negativo-2"; # Define your hostname.
@@ -216,8 +215,8 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 59100 ];
+  networking.firewall.allowedUDPPorts = [ 59100 59200 ];
 
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
