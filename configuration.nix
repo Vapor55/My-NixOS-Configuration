@@ -45,7 +45,6 @@
     options snd-intel-dspcfg dsp_driver=1
     blacklist kvm_intel
     blacklist kvm
-    snd-aloop
   '';
 
   networking.hostName = "Gui-Negativo-2"; # Define your hostname.
@@ -218,7 +217,7 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [ 49152 ];
 
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
