@@ -45,6 +45,7 @@
     options snd-intel-dspcfg dsp_driver=1
     blacklist kvm_intel
     blacklist kvm
+    snd-aloop
   '';
 
   networking.hostName = "Gui-Negativo-2"; # Define your hostname.
