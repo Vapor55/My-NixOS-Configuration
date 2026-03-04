@@ -34,11 +34,9 @@
     fastfetch
     onefetch
     ncdu
-    kdePackages.filelight
-    sxiv
     gimp
     audacious
-    mpv
+    vlc
     temurin-bin
     gamemode
     gamescope
