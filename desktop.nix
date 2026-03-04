@@ -1,58 +1,25 @@
 { config, pkgs, ... }:
 
 {
-  # Enable Plasma 
-  services.desktopManager.plasma6.enable = true;
+  # Enable Cosmic
+  services.desktopManager.cosmic.enable = true;
 
   # Display Manager
 
   services.displayManager = {
-    sddm = {
+    cosmic-greeter = {
       enable = true;
-      wayland.enable = true;
-
-      # package = pkgs.kdePackages.sddm;
-      theme = "catppuccin-macchiato-mauve";
     };
 
     autoLogin = {
-      enable = true;
+      enable = false;
       user = "guilherme";
     };
   };
 
-  # GVFS, UDisks2 and Polkit needed for Dolphin
+  # System76's own Scheduler otimization
+  services.system76-scheduler.enable = true;
 
-  services = {
-    gvfs.enable = true;
-    udisks2.enable = true;
-  };
-
-  security.polkit.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    # SDDM Theme
-
-    (catppuccin-sddm.override {
-      flavor = "macchiato";
-      accent = "mauve";
-      font  = "Noto Fonts";
-      fontSize = "9";
-      background = "${./Assets/Wallpapers/Muse-Dash/1333023.png
-}";
-      loginBackground = true;
-    })
-  ];
-
-  # KDE Connect
-
-  programs.kdeconnect.enable = true;
-
-  # Enable KDE Connect in Firewall
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
-    allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
-  };
+  # Bypass clipboard Cosmic
+  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 }
