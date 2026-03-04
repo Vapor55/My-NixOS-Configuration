@@ -28,6 +28,7 @@
     cava
     discord
     vscode
+    tigervnc
     gcc
     git
     fastfetch
