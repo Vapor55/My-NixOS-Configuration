@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     htop
     btop
+    ghostty
     brave
     pear-desktop
     cava
