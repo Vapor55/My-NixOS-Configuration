@@ -10,11 +10,6 @@
     cosmic-greeter = {
       enable = true;
     };
-
-    autoLogin = {
-      enable = true;
-      user = "guilherme";
-    };
   };
 
   # System76's own Scheduler otimization
