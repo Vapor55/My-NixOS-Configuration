@@ -7,13 +7,13 @@
     enable = true;
 
     theme = {
-      package = pkgs.kdePackages.breeze-gtk;
-      name = "Breeze-Dark";
+      package = pkgs.colloid-gtk-theme;
+      name = "Colloid-Dark";
     };
 
     iconTheme = {
-      package = pkgs.kdePackages.breeze-icons;
-      name = "Breeze-Dark";
+      package = pkgs.colloid-icon-theme;
+      name = "Colloid-Dark";
     };
 
     font = {
