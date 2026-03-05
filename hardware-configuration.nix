@@ -25,7 +25,7 @@
       options = [ "subvol=nix" ];
     };
 
-  fileSystems."/boot/efi" =
+  fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/80A2-61E3";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
