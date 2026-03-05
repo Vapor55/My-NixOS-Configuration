@@ -26,14 +26,9 @@
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+      efiSysMountPoint = "/boot"; # ← use the same mount point here.
     };
-    grub = {
-      efiSupport = true;
-      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-      device = "nodev";
-      theme = "${pkgs.kdePackages.breeze-grub}/grub/themes/breeze"; # path to your grub theme
-    };
+    systemd-boot.enable = true;
   };
 
   # Modprobe options
