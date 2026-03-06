@@ -21,7 +21,10 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # GRUB default bootloader
+  # Linux Zen default kernel
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  # Systemd-boot default bootloader
 
   boot.loader = {
     efi = {
