@@ -156,6 +156,7 @@
   environment.systemPackages = with pkgs; [
     # Common Packages
 
+    sbctl
     wl-clipboard
     # networkmanagerapplet
     gparted
