@@ -21,7 +21,7 @@
 
   };
 
-  outputs = {self, nixpkgs, lanzaboote, home-manager, } @ inputs: {
+  outputs = {self, nixpkgs, lanzaboote, nix-cachyos-kernel, home-manager, } @ inputs: {
 
     nixosConfigurations = {
       "Gui-Negativo-2" = nixpkgs.lib.nixosSystem {
