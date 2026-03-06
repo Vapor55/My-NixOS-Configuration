@@ -47,11 +47,8 @@
               enable = true;
               pkiBundle = "/var/lib/sbctl";
             };
-          })        
 
-        (
-          { pkgs, ... }:
-          {
+            # CachyOS kernel
             nixpkgs.overlays = [
               # Use the exact kernel versions as defined in this repo.
               # Guarantees you have binary cache.
@@ -72,8 +69,7 @@
             nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
 
             # ... your other configs
-          }
-        )
+          })        
 
           ./configuration.nix 
         ];
