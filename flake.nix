@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.0.0";
 
@@ -47,8 +50,11 @@
               enable = true;
               pkiBundle = "/var/lib/sbctl";
             };
+          })        
 
-            # CachyOS kernel
+        (
+          { pkgs, ... }:
+          {
             nixpkgs.overlays = [
               # Use the exact kernel versions as defined in this repo.
               # Guarantees you have binary cache.
@@ -69,7 +75,8 @@
             nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
 
             # ... your other configs
-          })        
+          }
+        )
 
           ./configuration.nix 
         ];
