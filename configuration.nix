@@ -21,6 +21,10 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Linux Zen default kernel
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   # Systemd-boot default bootloader
 
   boot.loader = {

@@ -51,33 +51,7 @@
               pkiBundle = "/var/lib/sbctl";
             };
           })        
-
-        (
-          { pkgs, ... }:
-          {
-            nixpkgs.overlays = [
-              # Use the exact kernel versions as defined in this repo.
-              # Guarantees you have binary cache.
-              nix-cachyos-kernel.overlays.pinned
-
-              # Alternatively, build the kernels on top of nixpkgs version in your flake.
-              # This might cause version mismatch/build failures!
-              # nix-cachyos-kernel.overlays.default
-
-              # Only use one of the two overlays!
-            ];
-
-            # CachyOS kernel binary
-            boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-
-            # Binary cache
-            nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
-            nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
-
-            # ... your other configs
-          }
-        )
-
+          
           ./configuration.nix 
         ];
       };
