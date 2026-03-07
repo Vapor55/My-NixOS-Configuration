@@ -13,7 +13,6 @@
     ./desktop.nix
     ./Programs/nix-ld.nix
     ./Programs/audiorelay-driver.nix
-    ./Programs/dolphin.nix
     ./Programs/steam.nix
     ];
 
