@@ -25,19 +25,12 @@
     history.path = "$HOME/.zsh_history";
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
 
-    initContent = ''
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-    '';
-
-    zplug = {
-      enable = true;
-      plugins = [
-        {name = "zsh-users/zsh-autosuggestions";}
-        {
-          name = "romkatv/powerlevel10k";
-          tags = [ "as:theme" "depth:1" ];
-        }
-      ];
-    };
-  };
+   ohMyZsh = {
+    enable = true;
+    plugins = [
+      "git"
+      "z"
+    ];
+    theme = "lambda";
+   };
 }

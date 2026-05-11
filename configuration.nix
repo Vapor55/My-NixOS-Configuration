@@ -5,24 +5,17 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+  imports = [ 
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
 
-    # Separated Packages
-    ./desktop.nix
-    ./Programs/nix-ld.nix
-    ./Programs/audiorelay-driver.nix
-    ./Programs/steam.nix
-    ];
-
-  # NixOS Flakes
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Linux Zen default kernel
-
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+      # Separated Packages
+      ./Programs/doas.nix
+      ./desktop-lxqt.nix
+      ./Programs/nix-ld.nix
+      # ./Programs/audiorelay-driver.nix
+      ./Programs/steam.nix
+  ];
 
   # Systemd-boot default bootloader
 
@@ -34,13 +27,11 @@
     systemd-boot.enable = true;
   };
 
-  # Modprobe options
+  # Linux Zen default kernel
 
-  boot.extraModprobeConfig = ''
-    options snd-intel-dspcfg dsp_driver=1
-  '';
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  networking.hostName = "Gui-Negativo-2"; # Define your hostname.
+  networking.hostName = "Miku-C4128G-15"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -50,7 +41,7 @@
   hardware.bluetooth = {
     enable = true;
   };
-  # services.blueman.enable = true;
+  services.blueman.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Belem";
@@ -66,9 +57,6 @@
     keyMap = "br-abnt2";
     # useXkbConfig = true; # use xkb.options in tty.
   };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "br";
@@ -98,19 +86,14 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
-  users.users.guilherme = {
+  users.users.hitori = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "vboxusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = true;
-    shell = pkgs.zsh; 
     packages = with pkgs; [
       tree
     ];
   };
-
-  # Enable Z-Shell
-
-  programs.zsh.enable = true;
 
   # NH helper
 
@@ -132,10 +115,6 @@
     # writebackDevice = "/dev/sdXN";
   };
 
-  # Waydroid
-
-  virtualisation.waydroid.enable = true;
-
   # Enable AppImage
 
   programs.appimage.enable = true;
@@ -156,14 +135,13 @@
   environment.systemPackages = with pkgs; [
     # Common Packages
 
-    wl-clipboard
-    # networkmanagerapplet
+    networkmanagerapplet
     gparted
     vim-full
-    # file-roller
     unzip
     unrar
     p7zip
+    peazip
   ]; 
 
   # Fonts
@@ -173,6 +151,7 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     pkgs.font-awesome
+    nerd-fonts.dejavu-sans-mono
     nerd-fonts.hack
     nerd-fonts.jetbrains-mono
     nerd-fonts.roboto-mono
@@ -238,5 +217,9 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
+
+  # NixOS Flakes
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
 

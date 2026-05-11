@@ -14,8 +14,8 @@
 
   # Home Manager configuration
 
-  home.username = "guilherme";
-  home.homeDirectory = "/home/guilherme";
+  home.username = "hitori";
+  home.homeDirectory = "/home/hitori";
   home.stateVersion = "26.05"; # Or your desired NixOS release version
 
   # Home Manager Packages
@@ -23,18 +23,16 @@
   home.packages = with pkgs; [
     htop
     btop
-    ghostty
-    brave
-    pear-desktop
-    cava
+    firefox
     discord
     vscode
+    pear-desktop
+    cava
     tigervnc
-    gcc
     git
     fastfetch
     onefetch
-    ncdu
+    baobab
     gimp
     audacious
     vlc

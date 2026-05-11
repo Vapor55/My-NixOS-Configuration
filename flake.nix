@@ -4,9 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
-
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.0.0";
 
@@ -21,10 +18,10 @@
 
   };
 
-  outputs = {self, nixpkgs, lanzaboote, nix-cachyos-kernel, home-manager, } @ inputs: {
+  outputs = {self, nixpkgs, lanzaboote, home-manager, } @ inputs: {
 
     nixosConfigurations = {
-      "Gui-Negativo-2" = nixpkgs.lib.nixosSystem {
+      "Miku-C4128G-15" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = [
