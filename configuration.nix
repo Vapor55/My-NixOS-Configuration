@@ -16,6 +16,7 @@
       ./Programs/nix-ld.nix
       # ./Programs/audiorelay-driver.nix
       ./Programs/steam.nix
+      ./Programs/gamemode.nix
   ];
 
   # Systemd-boot default bootloader
@@ -153,6 +154,11 @@
     unrar
     p7zip
     peazip
+
+    # Gaming Packages
+
+    gamescope
+    mangohud
   ]; 
 
   # Fonts
