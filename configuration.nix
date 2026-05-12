@@ -89,7 +89,7 @@
 
   users.users.hitori = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "gamemode" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = true;
     shell = pkgs.zsh;
     packages = with pkgs; [
