@@ -136,12 +136,17 @@
     ]; 
   };
 
+  # DConf
+
+  programs.dconf.enable = true;
+
   # System Packages
 
   environment.systemPackages = with pkgs; [
     # Common Packages
 
     networkmanagerapplet
+    libnotify
     gparted
     vim-full
     unzip
