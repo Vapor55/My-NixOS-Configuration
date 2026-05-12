@@ -14,6 +14,8 @@
       lla = "ls -la";
       lal = "ls -al";
       la = "ls -a";
+      wl-copy = "xclip -selection clipboard";
+      wl-paste = "xclip -o -selection clipboard";
       update = "nh os switch";
       update-home = "nh home switch";
       update-full = "nh os switch && nh home switch";
