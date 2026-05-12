@@ -27,6 +27,7 @@
     discord
     vscode
     clang
+    wl-clipboard-x11
     pear-desktop
     cava
     tigervnc
