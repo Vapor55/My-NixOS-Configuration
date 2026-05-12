@@ -4,6 +4,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Enable the libinput mouse driver
+  services.xserver.libinput.enable = true;
+
   # Enable the LXQt Desktop Environment
   services.xserver.desktopManager.lxqt.enable = true;
   
