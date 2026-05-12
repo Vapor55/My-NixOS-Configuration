@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
 
       # Separated Packages
+      ./Drivers/intel-graphics.nix
       ./Programs/doas.nix
       ./desktop-lxqt.nix
       ./Programs/xdg-desktop-portal-lxqt.nix
