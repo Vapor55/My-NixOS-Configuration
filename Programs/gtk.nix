@@ -12,8 +12,8 @@
     };
 
     iconTheme = {
-      package = pkgs.reversal-icon-theme;
-      name = "Reversal-Dark";
+      package = pkgs.colloid-icon-theme;
+      name = "Colloid-Dark";
     };
 
     font = {

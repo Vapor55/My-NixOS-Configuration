@@ -43,6 +43,7 @@
     gamescope
     mangohud
     lutris
+    protonplus
   ];
 
   # Home Manager Switcher
