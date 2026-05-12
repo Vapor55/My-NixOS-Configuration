@@ -39,9 +39,6 @@
     audacious
     vlc
     temurin-bin
-    gamemode
-    gamescope
-    mangohud
     lutris
     protonplus
   ];
