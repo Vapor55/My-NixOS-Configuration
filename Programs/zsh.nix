@@ -25,12 +25,13 @@
     history.path = "$HOME/.zsh_history";
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
 
-   ohMyZsh = {
-    enable = true;
-    plugins = [
-      "git"
-      "z"
-    ];
-    theme = "lambda";
-   };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "z"
+      ];
+      theme = "lambda";
+    };
+  };
 }

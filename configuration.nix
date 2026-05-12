@@ -12,6 +12,7 @@
       # Separated Packages
       ./Programs/doas.nix
       ./desktop-lxqt.nix
+      ./Programs/xdg-desktop-portal-lxqt.nix
       ./Programs/nix-ld.nix
       # ./Programs/audiorelay-driver.nix
       ./Programs/steam.nix
@@ -90,10 +91,15 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     useDefaultShell = true;
+    shell = pkgs.zsh;
     packages = with pkgs; [
       tree
     ];
   };
+
+  # Enable Z-Shell
+
+  programs.zsh.enable = true;
 
   # NH helper
 

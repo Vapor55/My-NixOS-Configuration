@@ -26,6 +26,7 @@
     firefox
     discord
     vscode
+    clang
     pear-desktop
     cava
     tigervnc
@@ -50,4 +51,14 @@
   # Enable unfree Packages
 
   nixpkgs.config.allowUnfree = true;
+
+  # OpenLdap overlay
+
+  nixpkgs.overlays = [
+    (_: prev: {
+      openldap = prev.openldap.overrideAttrs {
+        doCheck = !prev.stdenv.hostPlatform.isi686;
+      };
+    })
+  ];
 }

@@ -55,7 +55,7 @@
     };
 
     homeConfigurations = {
-      "guilherme@Gui-Negativo-2" = home-manager.lib.homeManagerConfiguration {
+      "hitori@Miku-C4128G-15" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [ ./home.nix ];
       };
