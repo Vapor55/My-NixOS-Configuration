@@ -6,6 +6,11 @@
 
   # Enable the LXQt Desktop Environment
   services.xserver.desktopManager.lxqt.enable = true;
+
+  # Exclude default packages from LXQt:
+  environment.lxqt.excludePackages = with pkgs; [
+    lxqt.qterminal
+  ];
   
   # Optional: Configure display manager (e.g., sddm is popular with LXQt)
   services.xserver.displayManager.lightdm = {
@@ -15,9 +20,9 @@
     greeters.gtk.enable = true;
 
     # Example of having background as a particular color
-    background = "#ffa07a";
+    # background = "#ffa07a";
 
     # Example of the default image background (must be an absolute path)
-    #background = pkgs.nixos-artwork.wallpapers.simple-dark-gray-bottom.gnomeFilePath;
+    background = ./Assets/Wallpapers/Saki-Tenma/wp11393211-saki-tenma-wallpapers.png;
   };
 }
