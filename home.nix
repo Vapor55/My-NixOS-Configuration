@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     htop
     btop
+    alacritty
     firefox
     discord
     vscode
