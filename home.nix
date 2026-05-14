@@ -34,6 +34,7 @@
     tigervnc
     git
     fastfetch
+    pfetch
     onefetch
     baobab
     gimp
