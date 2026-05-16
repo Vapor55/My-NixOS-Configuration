@@ -29,7 +29,7 @@
     vscode
     clang
     tmux
-    wl-clipboard
+    xclip
     pear-desktop
     cava
     tigervnc
