@@ -22,7 +22,7 @@
 
   # Exclude default packages from LXQt:
   environment.lxqt.excludePackages = with pkgs; [
-    openbox
+    lxqt.openbox
     lxqt.qterminal
   ];
   
