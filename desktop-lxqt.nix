@@ -7,14 +7,6 @@
   # Enable the LXQt Desktop Environment
   services.xserver.desktopManager.lxqt.enable = true;
 
-  # Enable LXQt Wayland Session
-  environment.systemPackages = with pkgs; [
-    lxqt.lxqt-wayland-session
-  ];
-
-  # Enable the LabWC Wayland Compositor
-  programs.labwc.enable = true;
-
   # Exclude default packages from LXQt:
   environment.lxqt.excludePackages = with pkgs; [
     lxqt.qterminal
