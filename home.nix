@@ -47,6 +47,7 @@
     temurin-bin
     lutris
     protonplus
+    linux-wallpaperengine
   ];
 
   # Home Manager Switcher
