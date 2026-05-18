@@ -17,5 +17,6 @@
 
     environment.systemPackages = with pkgs; [
       i3blocks
+      xdg-desktop-portal-gtk
     ];
 }
