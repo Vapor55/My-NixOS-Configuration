@@ -12,8 +12,9 @@
       # Separated Packages
       ./Drivers/intel-graphics.nix
       ./Programs/doas.nix
-      ./desktop-lxqt.nix
-      ./Programs/xdg-desktop-portal-lxqt.nix
+      ./lightdm.nix
+      ./desktop-xfce.nix
+      ./Programs/xdg-desktop-portal-gtk.nix
       ./Programs/nix-ld.nix
       # ./Programs/audiorelay-driver.nix
       ./Programs/steam.nix
