@@ -14,7 +14,6 @@
       ./Programs/doas.nix
       ./lightdm.nix
       ./desktop-xfce.nix
-      ./Programs/xdg-desktop-portal-gtk.nix
       ./Programs/nix-ld.nix
       # ./Programs/audiorelay-driver.nix
       ./Programs/steam.nix
