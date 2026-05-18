@@ -13,7 +13,6 @@
         };
         windowManager.i3.enable = true;
     };
-    services.displayManager.defaultSession = "xfce";
 
     environment.systemPackages = with pkgs; [
       i3blocks
