@@ -37,6 +37,8 @@
     fastfetch
     pfetch
     onefetch
+    lm_sensors
+    sysstat
     baobab
     gimp
     audacious
