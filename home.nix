@@ -42,6 +42,7 @@
     baobab
     gimp
     audacious
+    feh
     vlc
     temurin-bin
     lutris
