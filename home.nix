@@ -40,6 +40,7 @@
     lm_sensors
     sysstat
     baobab
+    picom
     gimp
     audacious
     feh
